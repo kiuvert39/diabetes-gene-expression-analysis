@@ -1,0 +1,25 @@
+# R session/workspace files
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Raw data files not stored in Git
+data/**/*.gz
+data/**/*.rds
+
+# Generated plots and analysis outputs
+output/
+results/
+
+# Temporary/cache files
+*.Rproj.user
+*.Rhistory
+*.RDataTmp
+*.RDS.tmp
+*.html
+*.pdf
+
+# OS/editor files
+.DS_Store
+.vscode/
