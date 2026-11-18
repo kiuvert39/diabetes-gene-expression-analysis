@@ -123,11 +123,83 @@ The inspection established that the dataset contains 63 samples with 18,808 expr
 These observations provide the basis for the subsequent data preparation and exploratory analysis stages.
 
 
+
 ## Stage 3: Data Preparation
-(To be completed)
+
+### 3.1 Clinical Data Extraction
+
+Extracted the relevant clinical variables from the original GEO metadata:
+
+- Age
+- BMI
+- HbA1c
+- Sex
+- Diabetes status
+
+The clinical dataset contains 63 samples and 6 columns, including sample identifiers.
+
+### 3.2 Data Cleaning
+
+- Converted Age, BMI and HbA1c from character to numeric values.
+- Replaced missing-value markers (`"--"`) with `NA`.
+- Preserved the 12 missing HbA1c measurements without removing samples.
+- Converted diabetes status into a categorical factor with two groups: non-diabetic donors and T2D donors.
+- Retained donor sex as a categorical variable.
+
+### 3.3 Sample Alignment
+
+Verified that sample identifiers in the clinical dataset matched the expression matrix in both number and order.
+
+Both alignment checks returned `TRUE`.
+
+### 3.4 Saving Prepared Data
+
+Combined the expression matrix and cleaned clinical data into a single R list and saved it as:
+
+`data/raw/GSE38642_prepared.rds`
+
+The saved file was successfully reloaded and verified.
+
+- Expression matrix: 18,808 features × 63 samples.
+- Clinical data: 63 samples × 6 variables.
+
 
 ## Stage 4: Exploratory Data Analysis
-(To be completed)
+
+### 4.1 Expression Summary Statistics
+
+Calculated the mean, median and standard deviation of expression values across the 63 samples for all 18,808 expression features.
+
+### 4.2 Comparison Between Diabetes Groups
+
+Compared the average expression values of each feature between non-diabetic and T2D donors.
+
+Identified the 10 features with the largest absolute differences in average expression.
+
+Feature 8115355 showed the largest difference:
+- Non-diabetic mean: 6.984
+- T2D mean: 5.671
+- Mean difference: -1.312
+
+### 4.3 Distribution of Expression Differences
+
+Most expression features showed relatively small differences between the two groups. The distribution was centred close to zero.
+
+![Distribution of Expression Differences](../data/raw/expression_difference_histogram.png)
+
+### 4.4 Individual Feature Comparison
+
+Examined feature 8115355 using a boxplot. Its expression values were generally lower in the T2D group than in the non-diabetic group.
+
+![Feature 8115355 Boxplot](../data/raw/feature_8115355_boxplot.png)
+
+These observations are exploratory and do not establish statistical significance.
 
 ## Stage 5: Visualisation
-(To be completed)
+
+Saved the final visualisations generated during exploratory analysis as PNG files:
+
+- `expression_difference_histogram.png`
+- `feature_8115355_boxplot.png`
+
+The images are stored in `data/raw/`.

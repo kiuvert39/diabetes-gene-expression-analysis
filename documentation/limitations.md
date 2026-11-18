@@ -36,14 +36,22 @@ This document records the limitations and challenges identified during each stag
 - Visual inspection of expression distributions can identify obvious differences between samples but cannot establish that all technical quality issues are absent.
 - The checks performed at this stage were exploratory and did not constitute a complete microarray quality-control assessment.
 
+
 ## Stage 3: Data Preparation
 
-(To be updated after completing this stage.)
+- The 12 missing HbA1c measurements were retained as missing values rather than estimated or imputed.
+- Clinical data preparation was limited to the variables required for the project. No additional clinical variables were incorporated into the prepared dataset.
+- The original diabetes-status classifications were preserved despite the previously identified HbA1c discrepancies.
+
 
 ## Stage 4: Exploratory Data Analysis
 
-(To be updated after completing this stage.)
+- The comparison between diabetes groups was based on descriptive statistics, without formal statistical significance testing.
+- The dataset contains only 9 T2D donors compared with 54 non-diabetic donors, which limits the reliability of group comparisons.
+- The analysis identified differences in expression values but did not establish their biological significance.
+- Expression feature identifiers were not mapped to gene symbols, limiting biological interpretation.
 
 ## Stage 5: Visualisation
 
-(To be updated after completing this stage.)
+- The visualisations provide exploratory views of the data but cannot independently establish statistical significance or biological relationships.
+- Only selected expression features were visualised individually.
